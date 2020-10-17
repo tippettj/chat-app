@@ -1,5 +1,8 @@
 /* General Styles */
 
+a {
+  color: #7b5e57;
+}
 * {
   margin: 0;
   padding: 0;
@@ -40,7 +43,7 @@ input {
 button {
   cursor: pointer;
   padding: 12px;
-  background: #7c5cbf;
+  background: #4e342e;
   border: none;
   color: white;
   font-size: 16px;
@@ -48,18 +51,18 @@ button {
 }
 
 button:hover {
-  background: #6b47b8;
+  background: #7b5e57;
 }
 
 button:disabled {
   cursor: default;
-  background: #7c5cbf94;
+  background: #d3b8ae;
 }
 
 /* Join Page Styles */
 
 .centered-form {
-  background: #333744;
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -67,7 +70,20 @@ button:disabled {
   align-items: center;
 }
 
+.centered-form::before {
+  content: "";
+  background-image: url("/img/join.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 35%;
+}
+
 .centered-form__box {
+  position: relative;
   box-shadow: 0px 0px 17px 1px #1d1f26;
   background: #f7f7fa;
   padding: 24px;
@@ -89,12 +105,30 @@ button:disabled {
   display: flex;
 }
 
+/* For chat__sidebar, the aim was to place an image in the background
+    and set the opacity to 50%. However as this is a parent element all
+    child elements will also be at the same opacity. Therefore set the
+    position of chat_sidebar to relative and ::before to absolute. Add 
+    content "" or nothing will be displayed. Finally set the top, right, 
+    bottom, and left to cover the entire space */
 .chat__sidebar {
+  position: relative;
   height: 100vh;
-  color: white;
-  background: #333744;
+  color: #1b0000;
   width: 225px;
   overflow-y: scroll;
+}
+
+.chat__sidebar::before {
+  content: "";
+  background-image: url("/img/sidebar.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 70%;
 }
 
 /* Chat styles */
@@ -110,6 +144,7 @@ button:disabled {
   flex-grow: 1;
   padding: 24px 24px 0 24px;
   overflow-y: scroll;
+  background-color: #efebe9;
 }
 
 /* Message Styles */
@@ -130,7 +165,7 @@ button:disabled {
 }
 
 .message a {
-  color: #0070cc;
+  color: #7b5e57;
 }
 
 /* Message Composition Styles */
@@ -138,8 +173,9 @@ button:disabled {
 .compose {
   display: flex;
   flex-shrink: 0;
-  margin-top: 16px;
+  margin-top: 2px;
   padding: 24px;
+  background-color: #efebe9;
 }
 
 .compose form {
@@ -163,13 +199,16 @@ button:disabled {
 /* Chat Sidebar Styles */
 
 .room-title {
+  position: relative;
+  color: antiquewhite;
   font-weight: 400;
   font-size: 22px;
-  background: #2c2f3a;
+  background: #4e342e;
   padding: 24px;
 }
 
 .list-title {
+  position: relative;
   font-weight: 500;
   font-size: 18px;
   margin-bottom: 4px;
@@ -177,6 +216,7 @@ button:disabled {
 }
 
 .users {
+  position: relative;
   list-style-type: none;
   font-weight: 300;
   padding: 12px 24px 0 24px;
